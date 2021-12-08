@@ -2,10 +2,16 @@ import React from 'react';
 import './ProductPage2.css';
 
 import { useEffect, useState } from 'react';
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
 
 function ProductPage2(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [productData, setData] = useState({});
+  const [value, setValue] = React.useState(2);
+
   console.log(props.name);
   const xy = props.name.replaceAll('-', ' ');
   const editedText = xy.slice(0, -1);
@@ -244,6 +250,29 @@ function ProductPage2(props) {
                     </div>
                   </div>
                 </div>
+
+                <Box component='fieldset' mb={2} borderColor='transparent'>
+                  <Rating
+                    name='simple-controlled'
+                    value={value}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                    }}
+                  />
+                </Box>
+
+                <textarea
+                  placeholder='Enter review'
+                  id='w3review'
+                  name='w3review'
+                  rows='4'
+                  cols='100'
+                />
+                <Box component='fieldset' mb={2} borderColor='transparent'>
+                  <button className='go__to-store'>
+                    <a>Review</a>
+                  </button>
+                </Box>
               </div>
               <div>
                 <table>
