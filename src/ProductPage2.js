@@ -12,10 +12,30 @@ function ProductPage2(props) {
   const [productData, setData] = useState({});
   const [value, setValue] = React.useState(2);
 
+  const [Comment, setComment] = React.useState('');
+
+  const [allReviews, seallReviews] = useState([]);
+
   console.log(props.name);
   const xy = props.name.replaceAll('-', ' ');
   const editedText = xy.slice(0, -1);
   console.log(editedText);
+
+  const saveReview = () => {
+    seallReviews([
+      ...allReviews,
+      {
+        date: '15 march',
+        comment: Comment,
+        uploderName: 'saeed',
+        rating: value,
+      },
+    ]);
+
+    setComment('');
+    //// setValue()
+    ////console.log(value);
+  };
 
   useEffect(() => {
     const requestOptions = {
@@ -197,58 +217,51 @@ function ProductPage2(props) {
                   </div>
                 </div>
 
-                <div class='card'>
-                  <div class='row text-left'>
-                    <h3>Switch from ios to app</h3>
+                {allReviews.map((item, loop) => (
+                  <div class='card'>
+                    <div class='row text-left'>
+                      <h3>Switch from ios to app</h3>
 
-                    <div className='row'>
-                      <div className='product__rating col-2 '>
-                        <span class='fa fa-star star-active '></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-inactive mx-1'></span>{' '}
-                      </div>
-                      <div className='product__rating col-6'>
-                        <div class='review__date'>
-                          <p class='text-muted mt-1'>2 March, 2021</p>
+                      <div className='row'>
+                        <Rating
+                          name='simple-controlled'
+                          readOnly
+                          value={item.rating}
+                        />
+
+                        {/* <div className='product__rating col-2 '>
+                          <span class='fa fa-star star-active '></span>{' '}
+                          <span class='fa fa-star star-active mx-1'></span>{' '}
+                          <span class='fa fa-star star-active mx-1'></span>{' '}
+                          <span class='fa fa-star star-active mx-1'></span>{' '}
+                          <span class='fa fa-star star-inactive mx-1'></span>{' '}
+                        </div> */}
+                        <div className='product__rating col-6'>
+                          <div class='review__date'>
+                            <p class='text-muted mt-1'> {item.date}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <p className='content'>
-                      After using this phone every day for nearly a year and a
-                      half I’ve come to form my own take on this device. At
-                      first glance the Iphone 11 is a large yet slim looking
-                      device, much larger than my previous phone the Iphone 8.
-                      At first, I thought this would allow the phone to be more
-                      vulnerable to getting damaged when dropped although even
-                      when in a basic case with no screen protector the phone as
-                      survived every drop. For its larger size the phone is
-                      light weight and able to fit comfortably in my clothes
-                      pockets. A positive to this phone is that it is larger, I
-                      am a little bit on the taller side so the phone is able to
-                      fit comfortably in my hands, it’s nice to watch videos on
-                      and I had no problem adjusting quickly from the smaller
-                      size of the Iphone 8 to the size of the Iphone 11
-                    </p>
+                      <p className='content'>{item.comment}</p>
 
-                    <div className='row'>
-                      {/* <div className='product__rating col-2'>
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-inactive mx-1'></span>{' '}
-                      </div> */}
-                      <div className='product__rating col-2'>
-                        <div class='review__date'>
-                          <p class='text-muted'>Crown Town</p>
+                      <div className='row'>
+                        {/* <div className='product__rating col-2'>
+                      <span class='fa fa-star star-active mx-1'></span>{' '}
+                      <span class='fa fa-star star-active mx-1'></span>{' '}
+                      <span class='fa fa-star star-active mx-1'></span>{' '}
+                      <span class='fa fa-star star-active mx-1'></span>{' '}
+                      <span class='fa fa-star star-inactive mx-1'></span>{' '}
+                    </div> */}
+                        <div className='product__rating col-2'>
+                          <div class='review__date'>
+                            <p class='text-muted'>{item.uploderName}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ))}
 
                 <Box component='fieldset' mb={2} borderColor='transparent'>
                   <Rating
@@ -266,9 +279,11 @@ function ProductPage2(props) {
                   name='w3review'
                   rows='4'
                   cols='100'
+                  value={Comment}
+                  onChange={(e) => setComment(e.target.value)}
                 />
                 <Box component='fieldset' mb={2} borderColor='transparent'>
-                  <button className='go__to-store'>
+                  <button onClick={saveReview} className='go__to-store'>
                     <a>Review</a>
                   </button>
                 </Box>
