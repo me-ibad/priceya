@@ -121,30 +121,29 @@ function ProductPage2(props) {
             {console.log(productData)}
             <p>{productData.description}</p>
           </div>
-          <div class='d-flex justify-content-between align-items-center'>
-            <h4>Reviews</h4>
-          </div>
+          <div class='d-flex justify-content-between align-items-center'></div>
           <div class='container-fluid'>
             <div class='row'>
               <div class=''>
-                <div class='card'>
+                <div class=''>
                   <div class='row justify-content-left d-flex'>
-                    <div class='col-1 d-flex flex-column'>
+                    <div class='col-2 d-flex flex-column'>
                       <div class=''>
+                        <h4>Reviews</h4>
                         <h1 class='ratingReview'>4.0</h1>
-                        <p class=''>out of 5</p>
-                        <p class='text-muted muted'>256 reviews</p>
+                        {/* <p class=''>out of 5</p> */}
                       </div>
                       <div>
                         {' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-active mx-1'></span>{' '}
-                        <span class='fa fa-star star-inactive mx-1'></span>{' '}
+                        <span class='fa fa-star star-active'></span>{' '}
+                        <span class='fa fa-star star-active '></span>{' '}
+                        <span class='fa fa-star star-active '></span>{' '}
+                        <span class='fa fa-star star-active '></span>{' '}
+                        <span class='fa fa-star star-inactive '></span>{' '}
                       </div>
+                      <p class='text-muted'>256 reviews</p>
                     </div>
-                    <div class='col-md-8'>
+                    <div class='col-md-10'>
                       <div class='rating-bar0 justify-content-center'>
                         <table class='text-left'>
                           <tr>
