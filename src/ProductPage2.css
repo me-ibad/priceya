@@ -227,6 +227,9 @@ table {
   border-bottom: 1px solid #ddd;
   padding: 10px;
 }
+.name_mrg_left {
+  margin-left: 15px;
+}
 /* 
 .table__row > th,
 td {

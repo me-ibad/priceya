@@ -6,13 +6,41 @@ import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Avatar from '@material-ui/core/Avatar';
+import Skeleton from '@material-ui/lab/Skeleton';
+
+function Skeletonfun() {
+  return (
+    <>
+      <Skeleton variant='text' width={310} />
+      <Skeleton variant='circle' width={60} height={60} />
+      <Skeleton variant='rect' width={310} height={218} />
+    </>
+  );
+}
 
 function ProductPage2(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [productData, setData] = useState({});
   const [value, setValue] = React.useState(2);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const [Comment, setComment] = React.useState('');
+  const [title, setTitle] = React.useState('');
 
   const [allReviews, seallReviews] = useState([]);
 
@@ -27,6 +55,7 @@ function ProductPage2(props) {
       {
         date: '15 march',
         comment: Comment,
+        title: title,
         uploderName: 'saeed',
         rating: value,
       },
@@ -59,8 +88,21 @@ function ProductPage2(props) {
   }, []);
   if (isLoading) {
     return (
-      <section>
-        <p>LOADING</p>
+      <section className='container'>
+        <div class='row justify-content-left d-flex'>
+          <div class='col-4 col-sm-6 d-flex flex-column'>
+            <Skeletonfun />
+          </div>
+          <div class='col-4 col-sm-6 d-flex flex-column'>
+            <Skeletonfun />
+          </div>
+          <div class='col-4 col-sm-6 mt-4 d-flex flex-column'>
+            <Skeletonfun />
+          </div>
+          <div class='col-4 col-sm-6 mt-4 d-flex flex-column'>
+            <Skeletonfun />
+          </div>
+        </div>
       </section>
     );
   } else {
@@ -220,7 +262,7 @@ function ProductPage2(props) {
                 {allReviews.map((item, loop) => (
                   <div class='card'>
                     <div class='row text-left'>
-                      <h3>Switch from ios to app</h3>
+                      <h3>{item.title}</h3>
 
                       <div className='row'>
                         <Rating
@@ -264,30 +306,79 @@ function ProductPage2(props) {
                 ))}
 
                 <Box component='fieldset' mb={2} borderColor='transparent'>
-                  <Rating
-                    name='simple-controlled'
-                    value={value}
-                    onChange={(event, newValue) => {
-                      setValue(newValue);
-                    }}
-                  />
-                </Box>
-
-                <textarea
-                  placeholder='Enter review'
-                  id='w3review'
-                  name='w3review'
-                  rows='4'
-                  cols='100'
-                  value={Comment}
-                  onChange={(e) => setComment(e.target.value)}
-                />
-                <Box component='fieldset' mb={2} borderColor='transparent'>
-                  <button onClick={saveReview} className='go__to-store'>
+                  <button onClick={handleClickOpen} className='go__to-store'>
                     <a>Review</a>
                   </button>
                 </Box>
               </div>
+
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby='alert-dialog-title'
+                aria-describedby='alert-dialog-description'
+              >
+                <DialogTitle id='alert-dialog-title'>{editedText}</DialogTitle>
+
+                <DialogContent style={{ width: 500 }}>
+                  <Box component='fieldset' mb={2} borderColor='transparent'>
+                    <div class='row text-left'>
+                      <div className='product__rating col-1'>
+                        <Avatar>H</Avatar>
+                      </div>
+
+                      <div className='product__rating col-10 name_mrg_left'>
+                        <h5>Saeed</h5>
+                      </div>
+                    </div>
+                  </Box>
+
+                  <Box component='fieldset' mb={1} borderColor='transparent'>
+                    <Rating
+                      name='simple-controlled'
+                      value={value}
+                      defaultValue={2}
+                      size='large'
+                      onChange={(event, newValue) => {
+                        setValue(newValue);
+                      }}
+                    />
+                  </Box>
+
+                  <Box component='fieldset' mb={1} borderColor='transparent'>
+                    <TextField
+                      fullWidth
+                      id='standard-basic'
+                      label='Title'
+                      defaultValue={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                  </Box>
+                  <Box component='fieldset' mb={1} borderColor='transparent'>
+                    <TextField
+                      id='filled-secondary'
+                      label='Share details your experience'
+                      variant='filled'
+                      fullWidth
+                      margin='normal'
+                      multiline={true}
+                      rows={3}
+                      defaultValue={Comment}
+                      onChange={(e) => setComment(e.target.value)}
+                      // color='secondary'
+                    />
+                  </Box>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose} color='primary'>
+                    Cancel
+                  </Button>
+                  <Button onClick={saveReview} color='primary' autoFocus>
+                    Post
+                  </Button>
+                </DialogActions>
+              </Dialog>
+
               <div>
                 <table>
                   <tr className='table__row'>
