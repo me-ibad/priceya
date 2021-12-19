@@ -349,6 +349,8 @@ function ProductPage2(props) {
                     <TextField
                       fullWidth
                       id='standard-basic'
+                      inputProps={{ style: { fontSize: 20 } }} // font size of input text
+                      InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
                       label='Title'
                       defaultValue={title}
                       onChange={(e) => setTitle(e.target.value)}
@@ -361,6 +363,8 @@ function ProductPage2(props) {
                       variant='filled'
                       fullWidth
                       margin='normal'
+                      inputProps={{ style: { fontSize: 20 } }} // font size of input text
+                      InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
                       multiline={true}
                       rows={3}
                       defaultValue={Comment}
