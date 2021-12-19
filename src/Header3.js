@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 
 import * as constants from './Constants';
 import { productList2 } from './data';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,7 +18,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuPopup from './MenuPopup';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
 import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -28,55 +26,15 @@ import TreeItem from '@material-ui/lab/TreeItem';
 import ListIcon from '@material-ui/icons/List';
 import IconButton from '@material-ui/core/IconButton';
 
-const theme = createTheme({
-  overrides: {
-    // Style sheet name ⚛️
-    MuiTreeItem: {
-      selected: {
-        backgroundColor: 'red',
-      },
-    },
-  },
-});
-
 const useStyles = makeStyles({
   list: {
-    width: 350,
+    width: 250,
   },
-  // paper: {
-  //   width: 250
-  // },
   fullList: {
     width: 'auto',
   },
-  // label: {
-  //   fontSize: 20,
-  //   backgroundColor: 'white',
-  // },
-
   label: {
-    fontSize: 15,
-    color: '#3ef4152',
-    fontFamily: 'Open Sans Condensed',
-    '&:hover': {
-      backgroundColor: 'white',
-      // Reset on touch devices, it doesn't add specificity
-      '@media (hover: none)': {
-        backgroundColor: 'red',
-      },
-    },
-  },
-  sublabel: {
-    fontSize: 15,
-    color: 'gray',
-    fontFamily: 'Open Sans Condensed',
-    '&:hover': {
-      backgroundColor: 'white',
-      // Reset on touch devices, it doesn't add specificity
-    },
-  },
-  selected: {
-    backgroundColor: 'white',
+    fontSize: 20,
   },
   //   root: {
   //     height: 240,
@@ -436,12 +394,6 @@ function Header3(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <img
-          alt='...'
-          src='https://assets.myntassets.com/f_webp,dpr_1.5,q_40,w_400,c_limit,fl_progressive/assets/images/2021/7/1/d07fff8e-c616-44ae-a01d-f0163c2e743c1625160833447-Banner-Hamburger-500--1-.jpg'
-          class='imgsidebar'
-        />
-
         {/* 
         {x.map(item=>{
 
@@ -449,36 +401,34 @@ function Header3(props) {
 
         })} */}
         <ListItem>
-          <ThemeProvider theme={theme}>
-            <TreeView
-              className={classes.root}
-              defaultCollapseIcon={<ExpandMoreIcon />}
-              defaultExpandIcon={<ChevronRightIcon />}
+          <TreeView
+            className={classes.root}
+            defaultCollapseIcon={<ExpandMoreIcon />}
+            defaultExpandIcon={<ChevronRightIcon />}
+          >
+            <TreeItem
+              classes={{ label: classes.label }}
+              nodeId='5'
+              label='Computer'
             >
               <TreeItem
-                classes={{ label: classes.label, selected: classes.selected }}
-                nodeId='5'
-                label='Men'
+                classes={{ label: classes.label }}
+                nodeId='6'
+                label='Tab'
               >
                 <TreeItem
-                  classes={{ label: classes.sublabel }}
-                  nodeId='6'
-                  label='Top whear'
-                >
-                  <TreeItem
-                    classes={{ label: classes.sublabel }}
-                    nodeId='8'
-                    label='Formal shirt'
-                  />
-                  <TreeItem
-                    classes={{ label: classes.sublabel }}
-                    nodeId='9'
-                    label='large'
-                  />
-                </TreeItem>
+                  classes={{ label: classes.label }}
+                  nodeId='8'
+                  label='mini'
+                />
+                <TreeItem
+                  classes={{ label: classes.label }}
+                  nodeId='9'
+                  label='large'
+                />
               </TreeItem>
-            </TreeView>
-          </ThemeProvider>
+            </TreeItem>
+          </TreeView>
         </ListItem>
       </List>
 
@@ -560,8 +510,6 @@ function Header3(props) {
             <ListIcon />
           </button>
           <Drawer
-            // swipeAreaWidth={500}
-            classes={{ paper: classes.paper }}
             anchor={'left'}
             open={state['left']}
             onClose={toggleDrawer('left', false)}
