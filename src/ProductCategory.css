@@ -1,0 +1,289 @@
+/* ================= */
+/* FLEX CONTAINERS */
+/* ================= */
+
+body{
+    
+}
+
+.product__category-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1.5% !important;
+    margin-right: 1.5%;
+    margin-top: 10px;
+    
+}
+
+
+
+.product__category-page{
+    flex: 1;   
+}
+
+.flex-container {
+    display: flex;
+    margin: 1rem 2.5rem;
+}
+
+.flex-child {
+    flex: 1 0 15%;
+    /* border: 2px solid yellow; */
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 
+
+/* ================= */
+/* FILTERS */
+/* ================= */
+
+
+
+.filters__section-heading{
+    margin: 0;
+    padding: 0;
+    float: left;
+    
+}
+.filters__section-dropdown{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    margin: 1rem 5rem;
+}
+
+.filters { 
+    flex: 1;
+}
+
+ul {
+    float: left;
+}
+.filter__items{
+    /* display: grid; */
+    display: list-item;
+    margin: 0;
+    list-style: none;
+    padding: 0.5rem;
+    font-size: 16px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+    text-transform: capitalize;
+
+}
+.filter__title{
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    padding-top: 1rem;
+}
+
+.filters__list{
+    min-width: 260px !important;
+    text-align: left;
+    margin-right: 1.5%;
+    margin-left: 2%;
+}
+
+.filters__list > ul {
+    margin: 0;
+    list-style: none;
+    float: left;
+    padding: 0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+
+  .tags__category{
+    font-size: medium;
+    color: black !important;    
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .tags__filters--row{
+
+  }
+  
+
+.sorting__col{
+    padding-top: 0;
+    margin-top: 0;
+    text-align: right;
+    margin-right: 1.5%;
+    margin-bottom: 0!important;
+    padding-bottom: 0!important;
+}
+
+  #checkboxes label {
+    float: left;
+  }
+  #checkboxes ul {
+    margin: 0;
+    list-style: none;
+    float: left;
+  }
+
+  .checkbox{
+      margin-right: 0.5rem;
+      width: 20px;
+      height: 20px;
+  }
+
+  .category__PC{
+    text-transform: capitalize;
+    margin-right: 0.5rem;
+    width: 20px;
+    height: 20px;
+    
+  }
+
+  .filters__sublist {
+      width: 100%;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+  }
+
+  .filters__list {
+    display: inherit;
+    display: block;
+  }
+  @media only screen and (max-width: 900px) {
+      .filters__list {
+          display: none;
+      }
+}
+
+
+
+input[type=radio], input[type=checkbox] {
+    margin: 0 16px 0;
+    
+}
+
+
+@media only screen and (min-width: 200px) {
+    .filter__items{
+        font-size: var(--medium_p);
+        text-transform: capitalize;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .filter__items{
+        font-size: var(--small_p);
+        text-transform: capitalize;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .filter__items{
+        font-size: var(--small_p);
+        text-transform: capitalize;
+    }
+    .filters__list{
+        min-width: 250px !important;
+        text-align: left;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .filter__items{
+        font-size: var(--medium_p);
+        text-transform: capitalize;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+   
+    .filter__items{
+        font-size: var(--large_p);
+        text-transform: capitalize;
+    }
+    .filters__list{
+        min-width: 260px !important;
+        text-align: left;
+    }
+}
+
+
+.category__tags {
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+    zoom:1;
+    *display:inline;
+    /* this fix is needed for IE7- */
+}
+
+
+.min_limit, .max_limit{
+    width: 40px;
+}
+
+.submit_price{
+    width: 50px;
+    background-color: white;
+}
+
+.price__slider{
+    width: 12vw !important;
+    margin-left: 7% !important;
+
+}
+
+.tags__text{
+    font-size: 20px;
+}
+
+.section__description{
+    width: 90% !important;
+}
+
+.tags__heading{
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.tags__heading2{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.min__max--input{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #F2F3F8;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.btn{
+    text-align: left;
+    padding: 0;
+    padding: 15px 15px 15px 15px;
+}
+.tags__text2{
+    color: darkgray;
+}
+
+.tags__text2:hover{
+    color: darkgray;
+}
+
+/* 
+.fixedElement {
+    background-color: #c0c0c0;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+} */
