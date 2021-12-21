@@ -1,6 +1,5 @@
 import React from 'react'
 import ProductCard from './ProductCard'
-import './ProductCategory2.css'
 import './ProductCategory.css'
 import { useEffect, useState, useRef } from 'react'; 
 import { Button } from '@material-ui/core';
