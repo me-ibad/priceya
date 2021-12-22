@@ -143,6 +143,8 @@ function Header3(props) {
 
   const productList = productList2;
 
+  ////const finalmodel=[ { "parent":"Computers"}];
+
   const model = {
     Computers: {
       "all-computers": [],
@@ -751,31 +753,39 @@ function Header3(props) {
               defaultExpandIcon={<ChevronRightIcon />}
             >
               {/* {getHeading()} */}
-              <TreeItem
-                classes={{
-                  label: classes.label,
-                  selected: classes.selected,
-                }}
-                nodeId="5"
-                label="Men"
-              >
-                <TreeItem
-                  classes={{ label: classes.sublabel }}
-                  nodeId="6"
-                  label="Top whear"
-                >
+
+              {Object.keys(model).map((key) => (
+                <>
                   <TreeItem
-                    classes={{ label: classes.sublabel }}
-                    nodeId="8"
-                    label="Formal shirt"
-                  />
-                  <TreeItem
-                    classes={{ label: classes.sublabel }}
-                    nodeId="9"
-                    label="large"
-                  />
-                </TreeItem>
-              </TreeItem>
+                    classes={{
+                      label: classes.label,
+                      selected: classes.selected,
+                    }}
+                    nodeId={key}
+                    label={key}
+                  >
+                    {Object.keys(model[key]).map((key1) => (
+                      <>
+                        <TreeItem
+                          classes={{ label: classes.sublabel }}
+                          nodeId={key1}
+                          label={key1}
+                        >
+                          {model[key][key1].map((key2) => (
+                            <>
+                              <TreeItem
+                                classes={{ label: classes.sublabel }}
+                                nodeId={key2}
+                                label={key2}
+                              />
+                            </>
+                          ))}
+                        </TreeItem>
+                      </>
+                    ))}
+                  </TreeItem>
+                </>
+              ))}
             </TreeView>
           </ThemeProvider>
         </ListItem>
