@@ -230,6 +230,10 @@ table {
 .name_mrg_left {
   margin-left: 15px;
 }
+.mrgtop {
+  margin-top: 300px;
+}
+
 /* 
 .table__row > th,
 td {
