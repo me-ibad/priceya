@@ -232,28 +232,6 @@ table {
 }
 .mrgtop {
   margin-top: 300px;
+  justify-content: center;
+  align-items: center;
 }
-
-/* 
-.table__row > th,
-td {
-  padding: 10px;
-}
-
-.table__heading {
-  font-weight: 400;
-}
-.table__heading,
-.table__item {
-  border-bottom: 1px solid #ddd;
-  padding: 10px;
-  padding-right: 0;
-}
-
-.seller__name--table {
-  font-weight: bold !important;
-}
-
-.blank__heading {
-  width: 170px;
-} */

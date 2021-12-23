@@ -16,6 +16,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Skeleton from '@material-ui/lab/Skeleton';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Filters from './Filters';
+import Container from '@material-ui/core/Container';
 
 function Skeletonfun() {
   return (
@@ -136,11 +137,11 @@ function ProductPage2(props) {
   }, []);
   if (isLoading) {
     return (
-      <section className='container'>
-        <div class='row justify-content-center mrgtop d-flex'>
+      <Container maxWidth='xs'>
+        <div class=' justify-content-center mrgtop '>
           <CircularProgress />
         </div>
-      </section>
+      </Container>
     );
   } else {
     return (
@@ -149,7 +150,6 @@ function ProductPage2(props) {
           <div class='d-flex justify-content-between align-items-center'>
             <h4 className='product__page--h4'>{editedText}</h4>
           </div>
-          <Filters />
 
           <div className='product__rating'></div>
           <div className='row'>

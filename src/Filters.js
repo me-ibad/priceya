@@ -70,8 +70,10 @@ function Filters() {
   };
 
   return (
-    <div>
-      <button onClick={handleClickOpen}>Filter</button>
+    <>
+      <button className='btn-filter' onClick={handleClickOpen}>
+        Filter Results
+      </button>
       <Dialog
         fullScreen
         open={open}
@@ -202,7 +204,7 @@ function Filters() {
           </Accordion>
         </List>
       </Dialog>
-    </div>
+    </>
   );
 }
 
