@@ -263,8 +263,8 @@ input[type='checkbox'] {
 }
 
 .bottom_container {
-  background-color: white;
-  border-top: 2px solid lightgray;
+  /* background-color: white;
+  border-top: 2px solid lightgray; */
   height: 70px;
   width: 100%;
   padding: 15px;
