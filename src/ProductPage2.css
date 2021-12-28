@@ -78,9 +78,19 @@
 }
 
 /* REVIEWS SECTION */
-
+.text-muted {
+  margin-top: -3px;
+}
+.reviewmarg {
+  margin: 0 10px 0 10px;
+}
+.uploderName {
+  margin-top: 10px;
+}
+.centertext {
+  text-align: center;
+}
 .card {
-  border-radius: 5px;
   margin-top: 20px;
   padding-bottom: 30px;
   padding: 10px;

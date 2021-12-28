@@ -17,6 +17,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Filters from './Filters';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 function Skeletonfun() {
   return (
@@ -227,32 +228,32 @@ function ProductPage2(props) {
             <div class='row'>
               <div class=''>
                 <div class=''>
-                  <div class='row justify-content-left d-flex'>
-                    <div class='col-2 d-flex flex-column'>
+                  <div class='row '>
+                    <div class='col-1 d-flex flex-column'>
                       <div class=''>
                         <h4>Reviews</h4>
-                        <h1 class='ratingReview'>
+                        <h1 class='ratingReview centertext'>
                           {calculatRating().toFixed(1)}
                         </h1>
                         {/* <p class=''>out of 5</p> */}
                       </div>
                       <div>
-                        {' '}
                         <Rating
                           name='simple-controlled'
                           readOnly
                           value={calculatRating()}
                         />
                       </div>
-                      <p class='text-muted'>
-                        {' '}
+                      <div class='centertext text-muted'>
                         {allReviews.reduce(
                           (sum, { rating }) => sum + 1,
 
                           0
-                        )}{' '}
+                        )}
+                      </div>
+                      <div class='text-muted centertext justify-content-center'>
                         reviews
-                      </p>
+                      </div>
                     </div>
                     <div class='col-md-10'>
                       <div class='rating-bar0 justify-content-center'>
@@ -346,50 +347,27 @@ function ProductPage2(props) {
                     </div>
                   </div>
                 </div>
+                <br />
 
                 {allReviews.map((item, loop) => (
-                  <div class='card'>
-                    <div class='row text-left'>
-                      <h3>{item.title}</h3>
+                  <div className='reviewmarg'>
+                    <Grid container>
+                      <Grid item lg={1} md={2} sm={6} xs={6}>
+                        <Rating readOnly value={item.rating} />
+                      </Grid>
+                      <Grid item lg={10} md={10} sm={6} xs={6}>
+                        <p class='text-muted'>{item.date}</p>
+                      </Grid>
+                      {/* <h3 className='row'>{item.title}</h3> */}
+                      <Grid item lg={10} md={10} sm={10} xs={10}>
+                        <span>{item.comment}</span>
+                      </Grid>
 
-                      <div className='row'>
-                        <Rating
-                          name='simple-controlled'
-                          readOnly
-                          value={item.rating}
-                        />
-
-                        {/* <div className='product__rating col-2 '>
-                          <span class='fa fa-star star-active '></span>{' '}
-                          <span class='fa fa-star star-active mx-1'></span>{' '}
-                          <span class='fa fa-star star-active mx-1'></span>{' '}
-                          <span class='fa fa-star star-active mx-1'></span>{' '}
-                          <span class='fa fa-star star-inactive mx-1'></span>{' '}
-                        </div> */}
-                        <div className='product__rating col-6'>
-                          <div class='review__date'>
-                            <p class='text-muted mt-1'> {item.date}</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <p className='content'>{item.comment}</p>
-
-                      <div className='row'>
-                        {/* <div className='product__rating col-2'>
-                      <span class='fa fa-star star-active mx-1'></span>{' '}
-                      <span class='fa fa-star star-active mx-1'></span>{' '}
-                      <span class='fa fa-star star-active mx-1'></span>{' '}
-                      <span class='fa fa-star star-active mx-1'></span>{' '}
-                      <span class='fa fa-star star-inactive mx-1'></span>{' '}
-                    </div> */}
-                        <div className='product__rating col-2'>
-                          <div class='review__date'>
-                            <p class='text-muted'>{item.uploderName}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      <Grid item lg={10} md={10} sm={10} xs={10}>
+                        <p class='text-muted uploderName'>{item.uploderName}</p>
+                      </Grid>
+                    </Grid>
+                    <hr class='new1' />
                   </div>
                 ))}
 
