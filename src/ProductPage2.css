@@ -245,3 +245,20 @@ table {
   justify-content: center;
   align-items: center;
 }
+.rating-bar0 {
+  margin-top: 10px;
+  margin-left: 13px;
+}
+.ratingtop {
+  margin-top: -4px;
+}
+.bargrid {
+  display: grid;
+  grid-template-columns: 40px 100px;
+  grid-gap: 1px;
+
+  /* padding: 10px; */
+}
+.mrgdateleft {
+  margin-left: 30px;
+}

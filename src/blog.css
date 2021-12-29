@@ -1,0 +1,23 @@
+/* blog */
+.card-blog {
+  border: 1px solid #f2f2f2;
+  border-radius: 11px;
+  /* width: 500px; */
+}
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+.card-body {
+  height: 150px;
+}
+.card-blog:hover {
+  box-shadow: 2px 7px 24px -9px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 2px 7px 24px -9px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 7px 24px -9px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

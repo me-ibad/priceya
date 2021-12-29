@@ -225,41 +225,93 @@ function ProductPage2(props) {
           </div>
           <div class='d-flex justify-content-between align-items-center'></div>
           <div class='container-fluid'>
-            <div class='row'>
-              <div class=''>
+            <Grid container>
+              <Grid item lg={1} md={2} sm={6} xs={6}>
                 <div class=''>
-                  <div class='row '>
-                    <div class='col-1 d-flex flex-column'>
-                      <div class=''>
-                        <h4>Reviews</h4>
-                        <h1 class='ratingReview centertext'>
-                          {calculatRating().toFixed(1)}
-                        </h1>
-                        {/* <p class=''>out of 5</p> */}
-                      </div>
-                      <div>
-                        <Rating
-                          name='simple-controlled'
-                          readOnly
-                          value={calculatRating()}
-                        />
-                      </div>
-                      <div class='centertext text-muted'>
-                        {allReviews.reduce(
-                          (sum, { rating }) => sum + 1,
+                  <h4>Reviews</h4>
+                  <h1 class='ratingReview centertext'>
+                    {calculatRating().toFixed(1)}
+                  </h1>
+                  {/* <p class=''>out of 5</p> */}
+                </div>
+                <div>
+                  <Rating
+                    name='simple-controlled'
+                    readOnly
+                    value={calculatRating()}
+                  />
+                </div>
+                <div class='centertext text-muted'>
+                  {allReviews.reduce(
+                    (sum, { rating }) => sum + 1,
 
-                          0
-                        )}
-                      </div>
-                      <div class='text-muted centertext justify-content-center'>
-                        reviews
+                    0
+                  )}
+                </div>
+                <div class='text-muted centertext justify-content-center'>
+                  reviews
+                </div>
+              </Grid>
+
+              <Grid item lg={10} md={10} sm={6} xs={6}>
+                <div class='rating-bar0 justify-content-center'>
+                  <div class='bargrid'>
+                    <div class='rating-label '>5 star</div>
+                    <div class='rating-bar'>
+                      <div class='bar-container'>
+                        <div class='bar-5'></div>
                       </div>
                     </div>
-                    <div class='col-md-10'>
-                      <div class='rating-bar0 justify-content-center'>
-                        <table class='text-left'>
-                          <tr>
-                            <td class='rating-label'>5 star</td>
+                  </div>
+                  <div class='bargrid ratingtop'>
+                    <div class='rating-label '>4 star</div>
+                    <div class='rating-bar'>
+                      <div class='bar-container'>
+                        <div class='bar-4'></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='bargrid ratingtop'>
+                    <div class='rating-label '>3 star</div>
+                    <div class='rating-bar'>
+                      <div class='bar-container'>
+                        <div class='bar-3'></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='bargrid ratingtop'>
+                    <div class='rating-label '>2 star</div>
+                    <div class='rating-bar'>
+                      <div class='bar-container'>
+                        <div class='bar-2'></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='bargrid ratingtop'>
+                    <div class='rating-label '>1 star</div>
+                    <div class='rating-bar'>
+                      <div class='bar-container'>
+                        <div class='bar-1'></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+            <div class='col-md-10'>
+              <div class='rating-bar0 justify-content-center'>
+                {/* <div class='bargrid'>
+                          <div class='rating-label '>5 star</div>
+                          <div class='rating-bar'>
+                            <div class='bar-container'>
+                              <div class='bar-5'></div>
+                            </div>
+                          </div>
+                        </div> */}
+
+                {/* <table class='text-left'>
+                          <tr class='ratingtop'>
+                            <td class='rating-label '>5 star</td>
                             <td class='rating-bar'>
                               <div class='bar-container'>
                                 <div class='bar-5'></div>
@@ -282,7 +334,6 @@ function ProductPage2(props) {
                               </div>
                             </td>
                             <td class='text-right'>
-                              {' '}
                               {allReviews.reduce(
                                 (sum, { rating }) =>
                                   rating == 4 ? sum + 1 : sum + 0,
@@ -299,7 +350,6 @@ function ProductPage2(props) {
                               </div>
                             </td>
                             <td class='text-right'>
-                              {' '}
                               {allReviews.reduce(
                                 (sum, { rating }) =>
                                   rating == 3 ? sum + 1 : sum + 0,
@@ -316,7 +366,6 @@ function ProductPage2(props) {
                               </div>
                             </td>
                             <td class='text-right'>
-                              {' '}
                               {allReviews.reduce(
                                 (sum, { rating }) =>
                                   rating == 2 ? sum + 1 : sum + 0,
@@ -333,7 +382,6 @@ function ProductPage2(props) {
                               </div>
                             </td>
                             <td class='text-right'>
-                              {' '}
                               {allReviews.reduce(
                                 (sum, { rating }) =>
                                   rating == 1 ? sum + 1 : sum + 0,
@@ -342,11 +390,8 @@ function ProductPage2(props) {
                               )}
                             </td>
                           </tr>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                        </table> */}
+
                 <br />
 
                 {allReviews.map((item, loop) => (
@@ -356,7 +401,7 @@ function ProductPage2(props) {
                         <Rating readOnly value={item.rating} />
                       </Grid>
                       <Grid item lg={10} md={10} sm={6} xs={6}>
-                        <p class='text-muted'>{item.date}</p>
+                        <p class='text-muted mrgdateleft'>{item.date}</p>
                       </Grid>
                       {/* <h3 className='row'>{item.title}</h3> */}
                       <Grid item lg={10} md={10} sm={10} xs={10}>
@@ -370,14 +415,33 @@ function ProductPage2(props) {
                     <hr class='new1' />
                   </div>
                 ))}
-
-                <Box component='fieldset' mb={2} borderColor='transparent'>
-                  <button onClick={handleClickOpen} className='go__to-store'>
-                    <a>Review</a>
-                  </button>
-                </Box>
               </div>
-
+              <Box component='fieldset' mb={2} mt={3} borderColor='transparent'>
+                <button onClick={handleClickOpen} className='go__to-store'>
+                  <a>Review</a>
+                </button>
+              </Box>
+              <Grid container>
+                <Grid item lg={4} md={2} sm={6} xs={6}>
+                  <div class='card-blog'>
+                    <img
+                      class='card-img-top'
+                      src='https://ui-avatars.com/api/?name=John+Doe'
+                      alt='Card image cap'
+                    />
+                    <div class='card-body'>
+                      <h5 class='card-title'>Card title</h5>
+                      <p class='card-text'>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                      <a href='#' class='btn btn-primary'>
+                        Go somewhere
+                      </a>
+                    </div>
+                  </div>
+                </Grid>
+              </Grid>
               <Dialog
                 open={open}
                 onClose={handleClose}
