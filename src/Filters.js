@@ -46,7 +46,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function valuetext(value) {
   return `${value}°C`;
 }
-function Filters() {
+function Filters(props) {
+  console.log(props.list[1]);
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -99,46 +101,54 @@ function Filters() {
           </Toolbar>
         </AppBar>
         <List>
-          <Accordion>
-            <AccordionSummary
-              //   classes={{ expandIcon: classes.expandIcon }}
-              expandIcon={<ExpandMoreIcon style={{ fontSize: 30 }} />}
-              aria-controls='panel1a-content'
-              id='panel1a-header'
-            >
-              <Typography className={classes.heading}>Availability</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Grid container spacing={1}>
-                <Grid item xs={12}>
-                  <Checkbox
-                    checked={checked}
-                    color='primary'
-                    style={{
-                      transform: 'scale(1.5)',
-                    }}
-                    onChange={handleChange}
-                    inputProps={{ 'aria-label': 'primary checkbox' }}
-                  />
-                  <span>Availabile Now</span>
-                </Grid>
-                <Grid item xs={12}>
-                  <Checkbox
-                    checked={checked}
-                    color='primary'
-                    style={{
-                      transform: 'scale(1.5)',
-                    }}
-                    onChange={handleChange}
-                    inputProps={{ 'aria-label': 'primary checkbox' }}
-                  />
-                  <span>Awaiting Stock</span>
-                </Grid>
-              </Grid>
-            </AccordionDetails>
-          </Accordion>
+          {props.heading.map((itemHeading, headingCounter) =>
+            props.list[headingCounter] != '' ? (
+              <Accordion>
+                <AccordionSummary
+                  //   classes={{ expandIcon: classes.expandIcon }}
+                  expandIcon={<ExpandMoreIcon style={{ fontSize: 30 }} />}
+                  aria-controls='panel1a-content'
+                  id='panel1a-header'
+                >
+                  <Typography className={classes.heading}>
+                    {' '}
+                    {itemHeading}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Grid container spacing={1}>
+                    {props.list[headingCounter] != ''
+                      ? props.list[headingCounter].map((item, i) =>
+                          item != '' ? (
+                            <Grid item xs={12}>
+                              <Checkbox
+                                /// checked={checked}
+                                color='primary'
+                                style={{
+                                  transform: 'scale(1.5)',
+                                }}
+                                ///onChange={handleChange}
+                                inputProps={{
+                                  'aria-label': 'secondary checkbox',
+                                }}
+                              />
+                              <span>{item}</span>
+                            </Grid>
+                          ) : null
+                        )
+                      : null}
 
-          <Accordion>
+                    {/* <Checkbox
+                  color='primary'
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                /> */}
+                  </Grid>
+                </AccordionDetails>
+              </Accordion>
+            ) : null
+          )}
+
+          {/* <Accordion>
             <AccordionSummary
               //   classes={{ expandIcon: classes.expandIcon }}
               expandIcon={<ExpandMoreIcon style={{ fontSize: 30 }} />}
@@ -177,7 +187,7 @@ function Filters() {
                 </Grid>
               </Grid>
             </AccordionDetails>
-          </Accordion>
+          </Accordion> */}
 
           <Accordion>
             <AccordionSummary

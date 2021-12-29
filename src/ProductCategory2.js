@@ -810,7 +810,30 @@ function ProductCategory2(props) {
           </div>
         </div>
         <div className='bottom_container'>
-          <Filters />
+          {/* <Filters loadedBrands={{ title: 'Brand', list: loadedBrands }} /> */}
+
+          <Filters
+            list={[
+              loadedBrands,
+              screenType,
+              screenSizes,
+              resolutions,
+              os,
+              headphoneTypes,
+              type,
+              storage,
+            ]}
+            heading={[
+              'Brand',
+              'screenTypes',
+              'screenSizes',
+              'resolutions',
+              'os',
+              'headphoneTypes',
+              'type',
+              'storage',
+            ]}
+          />
           <button className='btn-shotby'>Shot By</button>
           <button
             className='btn-filter btn-upmove'
