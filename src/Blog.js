@@ -10,6 +10,18 @@ const DATA = [
     category: 'First Item',
     text: 'ferwerwr',
   },
+  {
+    img: 'https://i.etsystatic.com/inv/a76e1b/3536059246/inv_830x622.3536059246_64wb6rm9.jpg',
+    title: 'First Item',
+    category: 'First Item',
+    text: 'ferwerwr',
+  },
+  {
+    img: 'https://i.etsystatic.com/inv/a76e1b/3536059246/inv_830x622.3536059246_64wb6rm9.jpg',
+    title: 'First Item',
+    category: 'First Item',
+    text: 'ferwerwr',
+  },
 ];
 function Blog() {
   return (
