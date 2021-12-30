@@ -421,27 +421,7 @@ function ProductPage2(props) {
                   <a>Review</a>
                 </button>
               </Box>
-              <Grid container>
-                <Grid item lg={4} md={2} sm={6} xs={6}>
-                  <div class='card-blog'>
-                    <img
-                      class='card-img-top'
-                      src='https://ui-avatars.com/api/?name=John+Doe'
-                      alt='Card image cap'
-                    />
-                    <div class='card-body'>
-                      <h5 class='card-title'>Card title</h5>
-                      <p class='card-text'>
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </p>
-                      <a href='#' class='btn btn-primary'>
-                        Go somewhere
-                      </a>
-                    </div>
-                  </div>
-                </Grid>
-              </Grid>
+
               <Dialog
                 open={open}
                 onClose={handleClose}

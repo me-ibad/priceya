@@ -74,7 +74,7 @@ function Filters(props) {
   return (
     <>
       <button className='btn-filter' onClick={handleClickOpen}>
-        Filter Results
+        Filters
       </button>
       <Dialog
         fullScreen

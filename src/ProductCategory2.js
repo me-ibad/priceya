@@ -835,11 +835,8 @@ function ProductCategory2(props) {
             ]}
           />
           <button className='btn-shotby'>Shot By</button>
-          <button
-            className='btn-filter btn-upmove'
-            onClick={() => window.scrollTo(0, 0)}
-          >
-            <i class='fa fa-chevron-up'></i>
+          <button className=' btn-upmove' onClick={() => window.scrollTo(0, 0)}>
+            <i class='fa fa-chevron-up icon-styl'></i>
           </button>
         </div>
       </>
