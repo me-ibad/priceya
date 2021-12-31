@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import './blog.css';
+import Link from '@material-ui/core/Link';
 
 const DATA = [
   {
@@ -50,7 +51,7 @@ function Blog() {
             </div>
           </Grid>
         </Grid>
-        <hr class='new1' />
+        <div class='new1' />
 
         <Grid container spacing={2}>
           <Grid item lg={5} md={6} sm={12} xs={12}>
@@ -67,6 +68,11 @@ function Blog() {
                 of our top Etsy shops.
               </h4>
             </div>
+            <div class='divcenter'>
+              <a href='/blogdetails' className='centertext btn-readon'>
+                Read on
+              </a>
+            </div>
           </Grid>
           <Grid item lg={1} md={6} sm={12} xs={12} />
           <Grid item lg={6} md={6} sm={12} xs={12}>
@@ -78,11 +84,19 @@ function Blog() {
           </Grid>
         </Grid>
         <br />
+        <br />
+
         <Grid container spacing={2}>
           {DATA.map((item, loop) => (
             <Grid item lg={4} md={4} sm={12} xs={12}>
               <div class='card-blog'>
-                <img class='card-img-top' src={item.img} alt='Card image cap' />
+                <Link href='/blogdetails' class=''>
+                  <img
+                    class='card-img-top'
+                    src={item.img}
+                    alt='Card image cap'
+                  />
+                </Link>
                 <div class='card-body'>
                   <h5 class='card-title'>{item.category}</h5>
                   <div class='card-name'>{item.title}</div>

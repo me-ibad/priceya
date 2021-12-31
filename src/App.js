@@ -11,6 +11,7 @@ import './Header.css';
 import './MultiLevelNav.css';
 import ProductCategory2 from './ProductCategory2';
 import Blog from './Blog';
+import BlogDetails from './BlogDetails';
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -73,6 +74,9 @@ function App() {
 
           <Route path='/blog'>
             <Blog />
+          </Route>
+          <Route path='/blogdetails'>
+            <BlogDetails />
           </Route>
         </Switch>
       </div>
