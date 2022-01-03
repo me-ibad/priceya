@@ -18,6 +18,15 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Filters from './Filters';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles({
+  Dialog: {
+    width: 500,
+    '@media (max-width: 780px)': {
+      width: 300,
+    },
+  },
+});
 
 function Skeletonfun() {
   return (
@@ -30,6 +39,7 @@ function Skeletonfun() {
 }
 
 function ProductPage2(props) {
+  const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
   const [productData, setData] = useState({});
   const [value, setValue] = React.useState(2);
@@ -147,7 +157,7 @@ function ProductPage2(props) {
   } else {
     return (
       <div className='row product__page'>
-        <div className='col-8 product__column'>
+        <div className=''>
           <div class='d-flex justify-content-between align-items-center'>
             <h4 className='product__page--h4'>{editedText}</h4>
           </div>
@@ -223,10 +233,10 @@ function ProductPage2(props) {
             {console.log(productData)}
             <p>{productData.description}</p>
           </div>
-          <div class='d-flex justify-content-between align-items-center'></div>
-          <div class='container-fluid'>
+
+          <div class=''>
             <Grid container>
-              <Grid item lg={1} md={2} sm={6} xs={6}>
+              <Grid item lg={1} md={2} sm={6} xs={3}>
                 <div class=''>
                   <h4>Reviews</h4>
                   <h1 class='ratingReview centertext'>
@@ -234,7 +244,7 @@ function ProductPage2(props) {
                   </h1>
                   {/* <p class=''>out of 5</p> */}
                 </div>
-                <div>
+                <div class='centertext'>
                   <Rating
                     name='simple-controlled'
                     readOnly
@@ -253,7 +263,7 @@ function ProductPage2(props) {
                 </div>
               </Grid>
 
-              <Grid item lg={10} md={10} sm={6} xs={6}>
+              <Grid item lg={10} md={10} sm={6} xs={8}>
                 <div class='rating-bar0 justify-content-center'>
                   <div class='bargrid'>
                     <div class='rating-label '>5 star</div>
@@ -400,8 +410,12 @@ function ProductPage2(props) {
                       <Grid item lg={1} md={2} sm={6} xs={6}>
                         <Rating readOnly value={item.rating} />
                       </Grid>
+
                       <Grid item lg={10} md={10} sm={6} xs={6}>
                         <p class='text-muted mrgdateleft'>{item.date}</p>
+                      </Grid>
+                      <Grid item lg={12} md={2} sm={6} xs={6}>
+                        <h4 class='title-ratings'>hello text</h4>
                       </Grid>
                       {/* <h3 className='row'>{item.title}</h3> */}
                       <Grid item lg={10} md={10} sm={10} xs={10}>
@@ -430,17 +444,18 @@ function ProductPage2(props) {
               >
                 <DialogTitle id='alert-dialog-title'>{editedText}</DialogTitle>
 
-                <DialogContent style={{ width: 500 }}>
+                <DialogContent className={classes.Dialog}>
                   <Box component='fieldset' mb={2} borderColor='transparent'>
-                    <div class='row text-left'>
-                      <div className='product__rating col-1'>
+                    <Grid container>
+                      <Grid item lg={2} md={2} sm={2} xs={2}>
                         <Avatar>H</Avatar>
-                      </div>
-
-                      <div className='product__rating col-10 name_mrg_left'>
-                        <h5>Saeed</h5>
-                      </div>
-                    </div>
+                      </Grid>
+                      <Grid item lg={10} md={10} sm={10} xs={10}>
+                        <div className='name_mrg_left'>
+                          <h5>Saeed</h5>
+                        </div>
+                      </Grid>
+                    </Grid>
                   </Box>
 
                   <Box component='fieldset' mb={1} borderColor='transparent'>
@@ -459,8 +474,8 @@ function ProductPage2(props) {
                     <TextField
                       fullWidth
                       id='standard-basic'
-                      inputProps={{ style: { fontSize: 20 } }} // font size of input text
-                      InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
+                      inputProps={{ style: { fontSize: 15 } }} // font size of input text
+                      InputLabelProps={{ style: { fontSize: 15 } }} // font size of input label
                       label='Title'
                       defaultValue={title}
                       onChange={(e) => setTitle(e.target.value)}
@@ -473,8 +488,8 @@ function ProductPage2(props) {
                       variant='filled'
                       fullWidth
                       margin='normal'
-                      inputProps={{ style: { fontSize: 20 } }} // font size of input text
-                      InputLabelProps={{ style: { fontSize: 20 } }} // font size of input label
+                      inputProps={{ style: { fontSize: 15 } }} // font size of input text
+                      InputLabelProps={{ style: { fontSize: 15 } }} // font size of input label
                       multiline={true}
                       rows={3}
                       defaultValue={Comment}

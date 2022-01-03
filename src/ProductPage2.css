@@ -262,3 +262,16 @@ table {
 .mrgdateleft {
   margin-left: 30px;
 }
+.title-ratings {
+  padding: 0px !important;
+  /* margin-top: -10px; */
+  margin: 0px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .rating-bar {
+    width: 210px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+}
