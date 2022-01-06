@@ -18,7 +18,24 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Filters from './Filters';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
+const BorderLinearProgress = withStyles((theme) => ({
+  root: {
+    height: 10,
+    borderRadius: 5,
+  },
+  colorPrimary: {
+    backgroundColor:
+      theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+  },
+  bar: {
+    borderRadius: 5,
+    backgroundColor: '#fbc02d',
+  },
+}))(LinearProgress);
+
 const useStyles = makeStyles({
   Dialog: {
     width: 500,
@@ -269,7 +286,10 @@ function ProductPage2(props) {
                     <div class='rating-label '>5 star</div>
                     <div class='rating-bar'>
                       <div class='bar-container'>
-                        <div class='bar-5'></div>
+                        <BorderLinearProgress
+                          variant='determinate'
+                          value={100}
+                        />
                       </div>
                     </div>
                   </div>
@@ -277,7 +297,10 @@ function ProductPage2(props) {
                     <div class='rating-label '>4 star</div>
                     <div class='rating-bar'>
                       <div class='bar-container'>
-                        <div class='bar-4'></div>
+                        <BorderLinearProgress
+                          variant='determinate'
+                          value={50}
+                        />
                       </div>
                     </div>
                   </div>
@@ -285,7 +308,10 @@ function ProductPage2(props) {
                     <div class='rating-label '>3 star</div>
                     <div class='rating-bar'>
                       <div class='bar-container'>
-                        <div class='bar-3'></div>
+                        <BorderLinearProgress
+                          variant='determinate'
+                          value={30}
+                        />
                       </div>
                     </div>
                   </div>
@@ -293,7 +319,10 @@ function ProductPage2(props) {
                     <div class='rating-label '>2 star</div>
                     <div class='rating-bar'>
                       <div class='bar-container'>
-                        <div class='bar-2'></div>
+                        <BorderLinearProgress
+                          variant='determinate'
+                          value={20}
+                        />
                       </div>
                     </div>
                   </div>
@@ -301,7 +330,10 @@ function ProductPage2(props) {
                     <div class='rating-label '>1 star</div>
                     <div class='rating-bar'>
                       <div class='bar-container'>
-                        <div class='bar-1'></div>
+                        <BorderLinearProgress
+                          variant='determinate'
+                          value={10}
+                        />
                       </div>
                     </div>
                   </div>
