@@ -524,7 +524,7 @@ function ProductPage2(props) {
 
                 <br />
 
-                {allReviews.map((item, loop) => (
+                {allReviews.slice(0, expand).map((item, loop) => (
                   <div className='reviewmarg'>
                     <Grid container>
                       <Grid item lg={1} md={2} sm={6} xs={6}>
@@ -568,7 +568,9 @@ function ProductPage2(props) {
                 ))}
               </div>
               <div class='allreviews'>
-                <a class='class-1'>All Review</a>
+                <a class='class-1' onClick={() => setExpand(expand + 5)}>
+                  Load More
+                </a>
               </div>
               <Box component='fieldset' mb={2} mt={3} borderColor='transparent'>
                 <button onClick={handleClickOpen} className='go__to-store'>
