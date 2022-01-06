@@ -290,18 +290,53 @@ function ProductPage2(props) {
                       <div class='bar-container'>
                         <BorderLinearProgress
                           variant='determinate'
-                          value={100}
+                          value={
+                            allReviews.length == 0
+                              ? 0
+                              : parseInt(
+                                  (allReviews.reduce(
+                                    (sum, { rating }) =>
+                                      rating == 5 ? sum + 1 : sum + 0,
+
+                                    0
+                                  ) /
+                                    allReviews.reduce(
+                                      (sum, { rating }) => sum + 1,
+
+                                      0
+                                    )) *
+                                    100
+                                )
+                          }
                         />
                       </div>
                     </div>
                   </div>
+
                   <div class='bargrid ratingtop'>
                     <div class='rating-label '>4 star</div>
                     <div class='rating-bar'>
                       <div class='bar-container'>
                         <BorderLinearProgress
                           variant='determinate'
-                          value={50}
+                          value={
+                            allReviews.length == 0
+                              ? 0
+                              : parseInt(
+                                  (allReviews.reduce(
+                                    (sum, { rating }) =>
+                                      rating == 4 ? sum + 1 : sum + 0,
+
+                                    0
+                                  ) /
+                                    allReviews.reduce(
+                                      (sum, { rating }) => sum + 1,
+
+                                      0
+                                    )) *
+                                    100
+                                )
+                          }
                         />
                       </div>
                     </div>
@@ -312,7 +347,24 @@ function ProductPage2(props) {
                       <div class='bar-container'>
                         <BorderLinearProgress
                           variant='determinate'
-                          value={30}
+                          value={
+                            allReviews.length == 0
+                              ? 0
+                              : parseInt(
+                                  (allReviews.reduce(
+                                    (sum, { rating }) =>
+                                      rating == 3 ? sum + 1 : sum + 0,
+
+                                    0
+                                  ) /
+                                    allReviews.reduce(
+                                      (sum, { rating }) => sum + 1,
+
+                                      0
+                                    )) *
+                                    100
+                                )
+                          }
                         />
                       </div>
                     </div>
@@ -323,7 +375,24 @@ function ProductPage2(props) {
                       <div class='bar-container'>
                         <BorderLinearProgress
                           variant='determinate'
-                          value={20}
+                          value={
+                            allReviews.length == 0
+                              ? 0
+                              : parseInt(
+                                  (allReviews.reduce(
+                                    (sum, { rating }) =>
+                                      rating == 2 ? sum + 1 : sum + 0,
+
+                                    0
+                                  ) /
+                                    allReviews.reduce(
+                                      (sum, { rating }) => sum + 1,
+
+                                      0
+                                    )) *
+                                    100
+                                )
+                          }
                         />
                       </div>
                     </div>
@@ -334,7 +403,24 @@ function ProductPage2(props) {
                       <div class='bar-container'>
                         <BorderLinearProgress
                           variant='determinate'
-                          value={10}
+                          value={
+                            allReviews.length == 0
+                              ? 0
+                              : parseInt(
+                                  (allReviews.reduce(
+                                    (sum, { rating }) =>
+                                      rating == 1 ? sum + 1 : sum + 0,
+
+                                    0
+                                  ) /
+                                    allReviews.reduce(
+                                      (sum, { rating }) => sum + 1,
+
+                                      0
+                                    )) *
+                                    100
+                                )
+                          }
                         />
                       </div>
                     </div>
