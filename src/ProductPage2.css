@@ -82,7 +82,20 @@
   margin-top: -3px;
 }
 .reviewmarg {
-  margin: 0 10px 0 10px;
+  margin: 20px 10px 0 10px;
+}
+.class-1 {
+  color: #2690c8;
+  cursor: pointer;
+}
+.allreviews {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.new2 {
+  border-top: 1px solid #f4f4f4;
+  /* margin: 20px 0 50px 0; */
+  margin-top: 10px;
 }
 .uploderName {
   margin-top: 10px;

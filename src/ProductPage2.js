@@ -20,6 +20,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import ShowMoreText from 'react-show-more-text';
 
 const BorderLinearProgress = withStyles((theme) => ({
   root: {
@@ -61,6 +62,7 @@ function ProductPage2(props) {
   const [productData, setData] = useState({});
   const [value, setValue] = React.useState(2);
   const [open, setOpen] = React.useState(false);
+  const [expand, setExpand] = React.useState(5);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -450,17 +452,37 @@ function ProductPage2(props) {
                         <h4 class='title-ratings'>hello text</h4>
                       </Grid>
                       {/* <h3 className='row'>{item.title}</h3> */}
-                      <Grid item lg={10} md={10} sm={10} xs={10}>
-                        <span>{item.comment}</span>
+                      <Grid item lg={12} md={12} sm={12} xs={12}>
+                        <span>
+                          <ShowMoreText
+                            /* Default options */
+                            lines={3}
+                            more='More'
+                            less='Less'
+                            className='content-css'
+                            anchorClass='my-anchor-css-class class-1'
+                            // onClick={executeOnClick}
+                            expanded={false}
+                            // width={280}
+                            truncatedEndingComponent={'... '}
+                          >
+                            {item.comment}
+                          </ShowMoreText>
+                        </span>
                       </Grid>
 
                       <Grid item lg={10} md={10} sm={10} xs={10}>
                         <p class='text-muted uploderName'>{item.uploderName}</p>
                       </Grid>
+                      <Grid item lg={12} md={12} sm={12} xs={12}>
+                        <div class='new2' />
+                      </Grid>
                     </Grid>
-                    <hr class='new1' />
                   </div>
                 ))}
+              </div>
+              <div class='allreviews'>
+                <a class='class-1'>All Review</a>
               </div>
               <Box component='fieldset' mb={2} mt={3} borderColor='transparent'>
                 <button onClick={handleClickOpen} className='go__to-store'>
